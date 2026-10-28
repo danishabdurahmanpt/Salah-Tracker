@@ -1,0 +1,753 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+
+:root {
+  --bg: #08130f;
+  --surface: #101f19;
+  --surface-light: #172a21;
+  --green: #a3e6b9;
+  --text: #f0f5f1;
+  --muted: #91a69a;
+  --border: #263b30;
+  --yellow: #e8c56b;
+  --red: #f08d8d;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: 'Inter', Arial, sans-serif;
+  min-height: 100vh;
+}
+
+.topbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 24px 7%;
+  border-bottom: 1px solid var(--border);
+}
+
+.logo {
+  color: var(--text);
+  font-size: 21px;
+  font-weight: 800;
+  text-decoration: none;
+}
+
+.logo-icon {
+  color: var(--green);
+  margin-right: 8px;
+}
+
+.today {
+  color: var(--muted);
+  font-size: 13px;
+}
+
+.container {
+  width: min(760px, 90%);
+  margin: 38px auto;
+}
+
+.welcome {
+  padding: 35px 0;
+}
+
+.eyebrow {
+  color: var(--green);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  margin-bottom: 13px;
+}
+
+h1 {
+  font-size: clamp(30px, 6vw, 44px);
+  letter-spacing: -1.5px;
+}
+
+.subtitle {
+  color: var(--muted);
+  margin-top: 12px;
+  font-size: 14px;
+}
+
+.clock {
+  font-size: 30px;
+  font-weight: 700;
+  margin-top: 28px;
+  font-variant-numeric: tabular-nums;
+}
+
+.location {
+  color: var(--muted);
+  font-size: 12px;
+  margin-top: 8px;
+}
+
+.next-prayer {
+  background: linear-gradient(120deg, #183e2b, #10271c);
+  border: 1px solid #2b6041;
+  border-radius: 18px;
+  padding: 26px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+}
+
+.next-prayer h2 {
+  font-size: 28px;
+  margin-bottom: 8px;
+}
+
+.next-prayer p:not(.eyebrow) {
+  color: #b5d0be;
+  font-size: 12px;
+}
+
+.next-time {
+  text-align: right;
+  flex-shrink: 0;
+}
+
+.next-time span {
+  display: block;
+  font-size: 25px;
+  font-weight: 700;
+}
+
+.next-time small {
+  display: block;
+  color: var(--green);
+  margin-top: 8px;
+  font-size: 11px;
+}
+
+.section-heading {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 38px 0 18px;
+}
+
+.section-heading h2 {
+  font-size: 21px;
+}
+
+.progress-count {
+  color: var(--green);
+  font-weight: 700;
+  font-size: 13px;
+}
+
+.progress-card,
+.prayer-card,
+.tip-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+}
+
+.progress-card {
+  padding: 20px;
+  margin-bottom: 14px;
+}
+
+.progress-info {
+  display: flex;
+  justify-content: space-between;
+  font-size: 12px;
+  margin-bottom: 14px;
+}
+
+.progress-info span {
+  color: var(--muted);
+}
+
+.progress-info strong {
+  color: var(--green);
+}
+
+.progress-track {
+  height: 6px;
+  border-radius: 10px;
+  background: #26372d;
+  overflow: hidden;
+}
+
+.progress-fill {
+  height: 100%;
+  width: 0%;
+  background: var(--green);
+  border-radius: inherit;
+  transition: width 0.3s ease;
+}
+
+.prayer-list {
+  display: grid;
+  gap: 12px;
+}
+
+.prayer-card {
+  padding: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  transition: border-color 0.2s ease;
+}
+
+.prayer-card:hover {
+  border-color: #42634f;
+}
+
+.prayer-left {
+  display: flex;
+  align-items: center;
+  gap: 13px;
+  min-width: 0;
+}
+
+.prayer-symbol {
+  width: 42px;
+  height: 42px;
+  flex-shrink: 0;
+  border-radius: 12px;
+  background: var(--surface-light);
+  display: grid;
+  place-items: center;
+  color: var(--green);
+  font-size: 19px;
+}
+
+.prayer-card h3 {
+  font-size: 14px;
+  margin-bottom: 5px;
+}
+
+.prayer-card p {
+  color: var(--muted);
+  font-size: 11px;
+}
+
+.prayer-actions {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.prayer-time {
+  color: var(--green);
+  font-size: 12px;
+  font-weight: 600;
+  min-width: 66px;
+  text-align: right;
+  white-space: nowrap;
+}
+
+/* Prayer status buttons */
+
+.status-buttons {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.status-btn {
+  border: 1px solid var(--border);
+  background: transparent;
+  color: var(--muted);
+  border-radius: 999px;
+  padding: 9px 12px;
+  font-family: inherit;
+  font-size: 11px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s ease,
+              border-color 0.2s ease,
+              transform 0.2s ease;
+}
+
+.status-btn:hover {
+  transform: translateY(-1px);
+}
+
+.status-btn:focus-visible {
+  outline: 2px solid var(--green);
+  outline-offset: 3px;
+}
+
+.status-btn.pending {
+  --status-color: var(--yellow);
+  --status-bg: #3a3020;
+}
+
+.status-btn.prayed {
+  --status-color: #65d6a0;
+  --status-bg: #16392b;
+}
+
+.status-btn.missed {
+  --status-color: var(--red);
+  --status-bg: #402525;
+}
+
+.status-btn.active {
+  color: var(--status-color);
+  background: var(--status-bg);
+  border-color: var(--status-color);
+}
+
+.tip-card {
+  margin-top: 25px;
+  padding: 22px;
+  display: flex;
+  align-items: flex-start;
+  gap: 15px;
+}
+
+.tip-icon {
+  color: var(--green);
+  font-size: 22px;
+}
+
+.tip-card h3 {
+  font-size: 14px;
+  margin-bottom: 7px;
+}
+
+.tip-card p {
+  color: var(--muted);
+  font-size: 12px;
+  line-height: 1.7;
+}
+
+footer {
+  text-align: center;
+  padding: 35px 0;
+  color: var(--muted);
+  font-size: 10px;
+  line-height: 2;
+}
+
+.loading {
+  color: var(--muted);
+  padding: 20px;
+  text-align: center;
+}
+
+@media (max-width: 650px) {
+  .topbar {
+    padding: 20px 5%;
+  }
+
+  .container {
+    width: 90%;
+    margin-top: 20px;
+  }
+
+  .welcome {
+    padding: 25px 0;
+  }
+
+  .next-prayer {
+    padding: 20px 15px;
+  }
+
+  .next-prayer h2 {
+    font-size: 23px;
+  }
+
+  .next-time span {
+    font-size: 21px;
+  }
+
+  .prayer-card {
+    padding: 15px 12px;
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .prayer-left {
+    gap: 10px;
+  }
+
+  .prayer-symbol {
+    width: 38px;
+    height: 38px;
+  }
+
+  .prayer-actions {
+    width: 100%;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+
+  .status-buttons {
+    gap: 5px;
+  }
+
+  .status-btn {
+    padding: 9px 11px;
+  }
+}
+
+@media (max-width: 360px) {
+  .status-buttons {
+    width: 100%;
+  }
+
+  .status-btn {
+    flex: 1;
+    padding: 9px 5px;
+  }
+
+  .prayer-time {
+    text-align: left;
+  }
+}
+
+/* ===== PRAYER HISTORY ===== */
+
+.history-section {
+  margin-top: 48px;
+}
+
+.history-heading {
+  margin-bottom: 22px;
+}
+
+.history-heading h2 {
+  font-size: 25px;
+  margin-bottom: 9px;
+}
+
+.history-subtitle {
+  color: var(--muted);
+  font-size: 12px;
+  line-height: 1.7;
+}
+
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 12px;
+  margin-bottom: 18px;
+}
+
+.stat-card {
+  min-width: 0;
+  padding: 19px 16px;
+  border: 1px solid var(--border);
+  border-radius: 15px;
+  background: var(--surface);
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.stat-icon {
+  font-size: 20px;
+}
+
+.stat-label {
+  color: var(--muted);
+  font-size: 11px;
+}
+
+.stat-number {
+  font-size: clamp(18px, 3vw, 25px);
+  overflow-wrap: anywhere;
+}
+
+.stat-note {
+  color: var(--muted);
+  font-size: 10px;
+  line-height: 1.5;
+}
+
+.mini-progress {
+  width: 100%;
+  height: 5px;
+  background: #26372d;
+  border-radius: 20px;
+  overflow: hidden;
+  margin-top: 2px;
+}
+
+.mini-progress div {
+  height: 100%;
+  width: 0;
+  background: var(--green);
+  border-radius: inherit;
+  transition: width 0.3s ease;
+}
+
+.calendar-card,
+.selected-day-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 22px;
+  margin-bottom: 16px;
+}
+
+.calendar-top,
+.selected-day-heading {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 22px;
+}
+
+.calendar-top .eyebrow,
+.selected-day-heading .eyebrow {
+  margin-bottom: 8px;
+}
+
+.calendar-top h3,
+.selected-day-heading h3 {
+  font-size: 18px;
+}
+
+.calendar-nav {
+  display: flex;
+  gap: 8px;
+}
+
+.calendar-nav button {
+  width: 36px;
+  height: 36px;
+  border: 1px solid var(--border);
+  background: var(--surface-light);
+  color: var(--text);
+  border-radius: 10px;
+  font-size: 24px;
+  cursor: pointer;
+}
+
+.calendar-nav button:hover:not(:disabled) {
+  border-color: var(--green);
+  color: var(--green);
+}
+
+.calendar-nav button:disabled {
+  opacity: 0.3;
+  cursor: not-allowed;
+}
+
+.calendar-weekdays,
+.calendar-grid {
+  display: grid;
+  grid-template-columns: repeat(7, minmax(0, 1fr));
+  gap: 7px;
+}
+
+.calendar-weekdays {
+  margin-bottom: 10px;
+}
+
+.calendar-weekdays span {
+  color: var(--muted);
+  font-size: 10px;
+  text-align: center;
+  padding: 7px 0;
+}
+
+.calendar-day,
+.calendar-empty {
+  min-width: 0;
+  aspect-ratio: 1;
+}
+
+.calendar-day {
+  position: relative;
+  display: grid;
+  place-items: center;
+  border: 1px solid transparent;
+  border-radius: 10px;
+  background: var(--surface-light);
+  color: var(--text);
+  font-family: inherit;
+  font-size: 12px;
+  cursor: pointer;
+  transition: background 0.2s ease, border-color 0.2s ease;
+}
+
+.calendar-day:hover:not(:disabled) {
+  border-color: var(--green);
+}
+
+.calendar-day.complete {
+  background: #194b34;
+  color: #a3e6b9;
+}
+
+.calendar-day.partial {
+  background: #3c3522;
+  color: #e8c56b;
+}
+
+.calendar-day.missed {
+  background: #482929;
+  color: #f08d8d;
+}
+
+.calendar-day.today {
+  border-color: var(--green);
+  font-weight: 800;
+}
+
+.calendar-day.selected {
+  outline: 2px solid var(--green);
+  outline-offset: 2px;
+}
+
+.calendar-day.future {
+  opacity: 0.25;
+  cursor: not-allowed;
+}
+
+.calendar-legend {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+  margin-top: 22px;
+}
+
+.calendar-legend span {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  color: var(--muted);
+  font-size: 10px;
+}
+
+.legend-dot {
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+}
+
+.complete-dot {
+  background: #65d6a0;
+}
+
+.partial-dot {
+  background: #e8c56b;
+}
+
+.missed-dot {
+  background: #f08d8d;
+}
+
+.selected-day-heading {
+  margin-bottom: 18px;
+}
+
+#selectedDayCount {
+  color: var(--green);
+  font-size: 12px;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.detail-prayers {
+  display: grid;
+  gap: 9px;
+}
+
+.detail-prayer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 14px;
+  background: var(--surface-light);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  font-size: 12px;
+}
+
+.detail-status {
+  font-size: 11px;
+  font-weight: 600;
+}
+
+.detail-status.prayed {
+  color: #65d6a0;
+}
+
+.detail-status.missed {
+  color: var(--red);
+}
+
+.detail-status.pending {
+  color: var(--muted);
+}
+
+.history-empty {
+  color: var(--muted);
+  font-size: 12px;
+  line-height: 1.7;
+  padding: 10px 0;
+}
+
+@media (max-width: 650px) {
+  .stats-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .stat-card {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    align-items: center;
+    column-gap: 12px;
+    row-gap: 5px;
+  }
+
+  .stat-icon {
+    grid-row: span 2;
+  }
+
+  .stat-label,
+  .stat-number,
+  .stat-note,
+  .mini-progress {
+    grid-column: 2;
+  }
+
+  .calendar-card,
+  .selected-day-card {
+    padding: 16px 12px;
+  }
+
+  .calendar-weekdays,
+  .calendar-grid {
+    gap: 5px;
+  }
+
+  .calendar-day {
+    border-radius: 8px;
+    font-size: 11px;
+  }
+
+  .calendar-legend {
+    gap: 10px;
+  }
+
+  .calendar-legend span {
+    font-size: 9px;
+  }
+}

@@ -1,0 +1,161 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SalahTrack | Your Prayer Companion</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="topbar">
+    <a class="logo" href="#">
+      <span class="logo-icon">☾</span>
+      SalahTrack
+    </a>
+    <div class="today" id="today">Loading date...</div>
+  </header>
+
+  <main class="container">
+    <section class="welcome">
+      <p class="eyebrow">YOUR DAILY COMPANION</p>
+      <h1>Every prayer is a step closer to Allah.</h1>
+      <p class="subtitle">Pause. Pray. Find your peace.</p>
+      <div class="clock" id="clock">00:00:00</div>
+      <p class="location" id="location">Loading prayer times...</p>
+    </section>
+
+    <section class="next-prayer">
+      <div>
+        <p class="eyebrow">UPCOMING PRAYER</p>
+        <h2 id="nextName">Loading...</h2>
+        <p id="nextMessage">Your next prayer awaits.</p>
+      </div>
+      <div class="next-time">
+        <span id="nextTime">--:--</span>
+        <small id="countdown">Calculating...</small>
+      </div>
+    </section>
+
+    <section class="section-heading">
+      <div>
+        <p class="eyebrow">YOUR DAILY JOURNEY</p>
+        <h2>Today's Prayers</h2>
+      </div>
+      <div class="progress-count" id="progressCount">0 / 5</div>
+    </section>
+
+    <section class="progress-card">
+      <div class="progress-info">
+        <span>Daily progress</span>
+        <strong id="progressPercent">0%</strong>
+      </div>
+      <div class="progress-track">
+        <div class="progress-fill" id="progressFill"></div>
+      </div>
+    </section>
+
+    <section class="prayer-list" id="prayerList">
+      <p class="loading">Preparing your prayer tracker...</p>
+    </section>
+
+    <!-- Prayer history and streak tracker -->
+    <section class="history-section">
+      <div class="history-heading">
+        <p class="eyebrow">YOUR CONSISTENCY</p>
+        <h2>Prayer History</h2>
+        <p class="history-subtitle">
+          Every small step counts. Keep building your routine.
+        </p>
+      </div>
+
+      <div class="stats-grid">
+        <article class="stat-card">
+          <span class="stat-icon">🔥</span>
+          <span class="stat-label">Current streak</span>
+          <strong class="stat-number" id="currentStreak">0 days</strong>
+          <span class="stat-note">Consecutive complete days</span>
+        </article>
+
+        <article class="stat-card">
+          <span class="stat-icon">🏆</span>
+          <span class="stat-label">Best streak</span>
+          <strong class="stat-number" id="bestStreak">0 days</strong>
+          <span class="stat-note">Your personal record</span>
+        </article>
+
+        <article class="stat-card">
+          <span class="stat-icon">📊</span>
+          <span class="stat-label">This week</span>
+          <strong class="stat-number" id="weekCount">0 / 35</strong>
+          <span class="stat-note" id="weekNote">Prayers completed</span>
+          <div class="mini-progress">
+            <div id="weekFill"></div>
+          </div>
+        </article>
+      </div>
+
+      <div class="calendar-card">
+        <div class="calendar-top">
+          <div>
+            <p class="eyebrow">YOUR RECORDS</p>
+            <h3 id="calendarMonth">Loading month...</h3>
+          </div>
+          <div class="calendar-nav">
+            <button type="button" id="prevMonth" aria-label="Previous month">‹</button>
+            <button type="button" id="nextMonth" aria-label="Next month">›</button>
+          </div>
+        </div>
+
+        <div class="calendar-weekdays">
+          <span>Mon</span>
+          <span>Tue</span>
+          <span>Wed</span>
+          <span>Thu</span>
+          <span>Fri</span>
+          <span>Sat</span>
+          <span>Sun</span>
+        </div>
+
+        <div class="calendar-grid" id="calendarGrid"></div>
+
+        <div class="calendar-legend">
+          <span><i class="legend-dot complete-dot"></i> All prayed</span>
+          <span><i class="legend-dot partial-dot"></i> Some recorded</span>
+          <span><i class="legend-dot missed-dot"></i> Missed prayer</span>
+        </div>
+      </div>
+
+      <div class="selected-day-card">
+        <div class="selected-day-heading">
+          <div>
+            <p class="eyebrow">DAILY DETAILS</p>
+            <h3 id="selectedDateTitle">Today's record</h3>
+          </div>
+          <span id="selectedDayCount">0 / 5</span>
+        </div>
+
+        <div class="detail-prayers" id="detailPrayers"></div>
+        <p class="history-empty" id="historyEmpty" hidden>
+          No prayers have been recorded for this day yet.
+        </p>
+      </div>
+    </section>
+
+    <section class="tip-card">
+      <span class="tip-icon">✦</span>
+      <div>
+        <h3>One day at a time</h3>
+        <p>Build a consistent routine, one prayer at a time.</p>
+      </div>
+    </section>
+
+    <footer>
+      <p>SalahTrack · Made to support your daily prayer routine</p>
+      <p>Your prayer records stay on this device.</p>
+    </footer>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
