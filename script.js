@@ -604,3 +604,12 @@ loadPrayerTimings();
 setInterval(updateClock, 1000);
 setInterval(updateNextPrayer, 1000);
 setInterval(checkNewDay, 15000);
+
+if ("serviceWorker" in navigator) {
+  window.addEventListener("load", () => {
+    navigator.serviceWorker.register("./sw.js")
+      .catch((error) => {
+        console.error("SalahTrack offline setup failed:", error);
+      });
+  });
+}
